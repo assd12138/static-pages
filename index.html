@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link type='' rel='stylesheet' href='' />
+</head>
+
+<body>
+    <div>
+        <label>购入价格</label>
+        <input class="price" type="text" />
+    </div>
+    <div>
+        <label>手续费率</label>
+        <input class="rate" type="text" value="0.2" />%
+    </div>
+    <div>
+        <input class="cal" onclick="cal()" type="button" value="算一下" />
+    </div>
+</body>
+<script>
+    function cal() {
+        let price = parseFloat(document.querySelector(".price").value);
+        let rate = (1-parseFloat(document.querySelector(".rate").value)/100);
+        let result = price/(rate*rate);
+        alert("当以"+result+"为单价售出时不亏！");
+      }
+</script>
+
+</html>
