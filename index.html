@@ -1,38 +1,47 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset='utf-8'>
-    <title>炒币算一下</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-</head>
-
-<body>
-    <form class="">
-        <div class="form-inline form-group">
-            <h1>
-                <span class="label label-info ">购入价格</span>
-                <input class="form-control price" type="text" />
-            </h1>
-        </div>
-        <div class="form-inline form-group">
-            <h1>
-                <span class="label label-info" for="">手续费率</span>
-                <input class="form-control rate" type="text" value="0.2" />%
-            </h1>
-        </div>
-        <div>
-            <input class="btn btn-primary btn-lg cal" onclick="cal()" type="button" value="算一下" />
-        </div>
-    </form>
-</body>
-<script>
-    function cal() {
-        let price = parseFloat(document.querySelector(".price").value);
-        let rate = (1 - parseFloat(document.querySelector(".rate").value) / 100);
-        let result = price / (rate * rate);
-        alert("当以" + result + "为单价售出时不亏！");
-    }
-</script>
-
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=2.0" />
+		<title>标题</title>
+		<link rel="stylesheet" href="./css/index.css" />
+	</head>
+	<body>
+		<div id="i">
+			<ul>
+				<li>
+					<img class="all" src="./images/小狗.png" draggable alt="" />
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<img class="all" src="./images/猴子.png" draggable alt="" />
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<img class="all" src="./images/孔雀.png" draggable alt="" />
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		const image = document.querySelector('#i')
+		image.addEventListener('dragstart', (e) => {
+			e.target.style.transform = 'scale(1.06)'
+			e.target.style.opacity = '0.7'
+		})
+		image.addEventListener('dragend', (e) => {
+			e.target.style.transform = ''
+			e.target.style.opacity = ''
+        })
+        image.addEventListener('touchstart', (e) => {
+			e.target.style.transform = 'scale(1.06)'
+			e.target.style.opacity = '0.7'
+		})
+		image.addEventListener('touchend', (e) => {
+			e.target.style.transform = ''
+			e.target.style.opacity = ''
+		})
+	</script>
 </html>
